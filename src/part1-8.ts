@@ -1,7 +1,7 @@
 // Part 1: Classes and Object-Oriented Programming -------------------
 
 export class Task {
-  static taskCount = 0;
+  private static taskCount = 0;
 
   title: string;
   description: string;
