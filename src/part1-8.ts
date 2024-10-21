@@ -117,7 +117,7 @@ async function fetchTasksFromDb(): Promise<Task[]> {
 
 // Part 7: Array Methods ---------------------------------------------
 
-const tasks = [
+const tasks: Task[] = [
   new Task("Task 1", "Description 1"),
   new PriorityTask("Task 2", "Description 2", "medium"),
   new Task("Task 3", "Description 3", true),
