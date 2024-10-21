@@ -25,3 +25,22 @@ export class Task {
     return Task.taskCount;
   }
 }
+
+export class PriorityTask extends Task {
+  priority: "low" | "medium" | "high";
+
+  constructor(
+    title: string,
+    description: string,
+    priority: "low" | "medium" | "high",
+    completed = false
+  ) {
+    super(title, description, completed);
+    this.priority = priority;
+  }
+
+  override markCompleted(): void {
+    super.markCompleted();
+    console.log(`Priority task "${this.title}" completed.`);
+  }
+}

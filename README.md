@@ -7,3 +7,11 @@ The system allows the team to manage tasks, assign tasks to team members, and tr
 ## Part 1: Classes and Object-Oriented Programming
 
 The source code is in [/src/model.ts](src/model.ts).
+
+## Part 2: Inheritance and Polymorphism
+
+I add a new class `PriorityTask` that extends `Task` and overrides the `markCompleted` method.
+
+The source code is in [/src/model.ts](src/model.ts).
+
+I use the `override` keyword to override the `markCompleted` method in the `PriorityTask` class.
