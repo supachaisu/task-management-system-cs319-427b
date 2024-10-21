@@ -114,3 +114,19 @@ async function fetchTasksFromDb(): Promise<Task[]> {
     new PriorityTask("Task 2", "Description 2", "medium"),
   ]);
 }
+
+// Part 7: Array Methods ---------------------------------------------
+
+const tasks = [
+  new Task("Task 1", "Description 1"),
+  new PriorityTask("Task 2", "Description 2", "medium"),
+  new Task("Task 3", "Description 3", true),
+];
+
+const taskTitles = tasks.map((task) => task.title);
+
+const incompleteTasks = tasks.filter((task) => !task.completed);
+
+const completedTasksCount = tasks.reduce((count, task) => {
+  return count + (task.completed ? 1 : 0);
+}, 0);
