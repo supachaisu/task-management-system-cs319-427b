@@ -130,3 +130,20 @@ const incompleteTasks = tasks.filter((task) => !task.completed);
 const completedTasksCount = tasks.reduce((count, task) => {
   return count + (task.completed ? 1 : 0);
 }, 0);
+
+// Part 8: Error Handling --------------------------------------------
+
+function parseTaskData(jsonData: string): Task | string {
+  try {
+    const parsedData = JSON.parse(jsonData);
+
+    return new Task(
+      parsedData.title,
+      parsedData.description,
+      parsedData.completed,
+    );
+  } catch (error) {
+    console.error(error);
+    return "Error parsing task data";
+  }
+}
