@@ -60,3 +60,17 @@ interface TeamMember {
 export function assignTask(member: TeamMember, task: Task): void {
   member.tasks.push(task);
 }
+
+// Part 4: Generics --------------------------------------------------
+
+class Queue<T> {
+  private readonly items: T[] = [];
+
+  enqueue(item: T): void {
+    this.items.push(item);
+  }
+
+  dequeue(): T | undefined {
+    return this.items.shift();
+  }
+}
