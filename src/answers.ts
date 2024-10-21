@@ -90,3 +90,27 @@ const markAsUrgent = createTaskUpdater((task) => {
     throw new Error("Task is not a PriorityTask");
   }
 });
+
+// Part 6: Asynchronous Programming ----------------------------------
+
+async function fetchTasks(): Promise<Task[]> {
+  try {
+    return await fetchTasksFromDb();
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+async function fetchTasksFromDb(): Promise<Task[]> {
+  const success = Math.random() > 0.5;
+
+  if (!success) {
+    throw new Error("Failed to fetch tasks from database");
+  }
+
+  return await Promise.resolve([
+    new Task("Task 1", "Description 1"),
+    new PriorityTask("Task 2", "Description 2", "medium"),
+  ]);
+}
