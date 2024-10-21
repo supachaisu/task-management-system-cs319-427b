@@ -74,3 +74,19 @@ class Queue<T> {
     return this.items.shift();
   }
 }
+
+// Part 5: Functions and Higher-Order Functions ----------------------
+
+function createTaskUpdater(updateFn: (task: Task) => void) {
+  return (task: Task) => {
+    updateFn(task);
+  };
+}
+
+const markAsUrgent = createTaskUpdater((task) => {
+  if (task instanceof PriorityTask) {
+    task.priority = "high";
+  } else {
+    throw new Error("Task is not a PriorityTask");
+  }
+});
