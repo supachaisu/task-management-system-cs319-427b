@@ -1,3 +1,5 @@
+// Part 1: Classes and Object-Oriented Programming -------------------
+
 export class Task {
   static taskCount = 0;
 
@@ -26,6 +28,8 @@ export class Task {
   }
 }
 
+// Part 2: Inheritance and Polymorphism ------------------------------
+
 export class PriorityTask extends Task {
   priority: "low" | "medium" | "high";
 
@@ -33,7 +37,7 @@ export class PriorityTask extends Task {
     title: string,
     description: string,
     priority: "low" | "medium" | "high",
-    completed = false
+    completed = false,
   ) {
     super(title, description, completed);
     this.priority = priority;
@@ -43,4 +47,16 @@ export class PriorityTask extends Task {
     super.markCompleted();
     console.log(`Priority task "${this.title}" completed.`);
   }
+}
+
+// Part 3: Type Annotations and Interfaces ---------------------------
+
+interface TeamMember {
+  name: string;
+  role: string;
+  tasks: Task[];
+}
+
+export function assignTask(member: TeamMember, task: Task): void {
+  member.tasks.push(task);
 }
